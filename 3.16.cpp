@@ -42,7 +42,7 @@ int main()
     cin >> r; 
 // khai báo hai con trỏ kiểu circle     
     Hinh_Tron *tron1 = new Hinh_Tron();
-    Hinh_Tron *tron2 = new Hinh_Tron(r);
+    Hinh_Tron *tron2 = new Hinh_Tron(r); // nếu có con trỏ thì chúng ta phải dùng this  
 
     tron2->Xuat();    
 // giải phóng bộ nhớ 

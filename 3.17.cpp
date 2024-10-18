@@ -15,7 +15,7 @@ class Circle
             this->r = r; 
         } 
     double Get_R(){
-        return M_PI * r * rhttps://img3.thuthuatphanmem.vn/uploads/2019/06/13/anh-nen-co-gai-anime_095241204.jpg;
+        return M_PI * r * r; 
     }        
     void nhap();
     void xuat();

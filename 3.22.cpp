@@ -16,7 +16,7 @@ class Canbo {
 };
 
 void Canbo::nhap(){
-    cout << "Ma can bo: ";
+    cout << "\nMa can bo: ";
     cin.get(Ma_can_bo , 10);
     cin.ignore();
     cout << "Ho va ten: ";
@@ -39,9 +39,9 @@ void Canbo::nhap(){
 void Canbo::xuat(){
     cout << endl;
     cout << setw(10) << Ma_can_bo 
-        << setw(15) << Ho_ten
-        << setw(5) << ngay << setw(5) << thang << setw(8) << nam
-        << setw(4) << He_so_luong  << endl;
+        << setw(20) << Ho_ten
+        << setw(4) << ngay << setw(3) << thang << setw(7) << nam
+        << setw(5) << He_so_luong  << endl;
 }
 
 double Canbo::luong(){
@@ -66,37 +66,35 @@ int main()
         canbo[i].nhap();
     }
 
-// tìm hệ số lương cao nhất 
-    
-    for( int i = 0 ; i < n ; i ++ ) 
-    {
-        int Maximum = i;
-        for( int j = i+1 ; j < n ; j++)
-        {
-            if( canbo[i].luong() < canbo[j].luong() )
-            {
-                Maximum = j; 
-            }
+    if( n < 2 )
+    {   
+        cout << "Chi co mot can bo duy nhat: "; 
+        canbo[0].xuat() ; 
+        return 1; 
+    }
 
-            if( Maximum != i )
-            {
-                swap(canbo[i] , canbo[Maximum] ) ;
-            }
+// tìm các cán bộ có hệ số lương cao và thấp
+// trên 5.0 là cao và dưới 2.0 là thấp 
+    cout << "Cac can  bo co he so luong thap nhat: \n";
+    for( int i = 0 ; i < n ; i ++ )
+    {
+        if( canbo[i].luong() < 5.0 )
+        {
+            cout << " - \n" ; 
+            canbo[i].xuat() ; 
+        }
+    }
+    cout << "\n Cac can bo co he so luong cao nhat: \n"; 
+    for( int i  = 0 ; i < n ; i ++ )
+    {
+        if( canbo[i].luong() >=   5.0 )
+        {
+            cout << " - \n" ; 
+            canbo[i].xuat() ; 
         }
     }
 
-    if( n > 1){
-        
-        cout << "Can bo co he so luong cao nhat: ";
-        canbo[0].xuat();
-        cout << "can bo co he so luong thap nhat: ";
-        canbo[1].xuat(); 
-    }
-    else 
-    {
-        cout << "Chi co mot can bo va nguoi do chinh la: ";
-        canbo[0].xuat();
-    }
+    cout << "  --- Ket thuc danh sach --- ";
 
     delete[] canbo;
     return 0;
