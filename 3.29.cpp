@@ -59,7 +59,9 @@ void student::xuat() {
         << sex << "  "
         << fixed << setprecision(2) << DiemTuyen << endl;
 }
+
  int student::soluong = 0; 
+
 int main()
 {   
     student sv1 ; 

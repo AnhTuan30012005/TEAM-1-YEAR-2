@@ -1,18 +1,29 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class SinhVien {
+class nn {
+private:
+    int nho;
 public:
-    static int soLuongSinhVien ; // Biến tĩnh để đếm số lượng sinh viên
-    SinhVien() {
-        soLuongSinhVien++;
+    void nhap() {
+        cout << "Nhap vao so: ";
+        cin >> nho;
+    }
+    nn timNhoNhat(nn Nho) {
+        nn small;
+        small.nho = min(this->nho, Nho.nho);
+        return small;
+    }
+    void xuat() {
+        cout << "Gia tri nho nhat la: " << nho << endl;
     }
 };
-    int SinhVien::soLuongSinhVien = 0;
-// int SinhVien::soLuongSinhVien = 0; // Khởi tạo giá trị ban đầu là 0
 
 int main() {
-    SinhVien sv1, sv2, sv3;
-    cout << "So luong sinh vien: " << SinhVien::soLuongSinhVien << endl; // In ra 3
+    nn Nho1, Nho2, Nho3;
+    Nho1.nhap();
+    Nho2.nhap();
+    Nho3 = Nho1.timNhoNhat(Nho2);
+    Nho3.xuat();
     return 0;
 }
