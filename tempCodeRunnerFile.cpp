@@ -1,0 +1,1 @@
+Giangvien a ; cin >> a ; cout << a ; 
